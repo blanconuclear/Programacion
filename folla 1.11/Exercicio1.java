@@ -5,11 +5,11 @@ public class Exercicio1 {
     public static void main(String[] args) {
         float[] matriz = new float[4];
 
-        introducirValores(matriz); // Llamamos a la función para introducir valores
-        mostrarValores(matriz); // Llamamos a la función para mostrar los valores
+        introducirValores(matriz);
+        mostrarValores(matriz);
     }
 
-    // Función para introducir valores desde el teclado
+    // Función para introducir valores desde o teclado
     public static void introducirValores(float[] matriz) {
         Scanner scanner = new Scanner(System.in);
 
@@ -20,7 +20,7 @@ public class Exercicio1 {
         }
     }
 
-    // Función para mostrar los valores de la matriz
+    // Función para mostrar os valores da matriz
     public static void mostrarValores(float[] matriz) {
         System.out.println("Valores de la matriz:");
         for (int i = 0; i < 4; i++) {
