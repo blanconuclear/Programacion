@@ -59,7 +59,7 @@ public class Exercicio3 {
         System.out.println("Que posición queres borrar?: ");
         int posicion = sc1.nextInt();
 
-        for (int i = 0; i < a.length; i++) {
+        for (int i = 0 - 1; i < a.length; i++) {
             if (i == posicion) {
                 a[i] = 0;
             }
@@ -73,7 +73,7 @@ public class Exercicio3 {
     }
 
     public static void mostrarInv(int[] a) {
-        for (int i = a.length; i < 0; i--) {
+        for (int i = a.length - 1; i >= 0; i--) {
             System.out.println("O valor na posición " + i + " é: " + a[i]);
         }
     }
