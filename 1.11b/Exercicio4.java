@@ -8,12 +8,12 @@ public class Exercicio4 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        int matrizA[][] = new int[3][3];
-        int matrizB[][] = new int[3][3];
+        int matrizA[][] = new int[2][2];
+        int matrizB[][] = new int[2][2];
 
         inicializar(matrizA, matrizB, sc);
         intercambiar(matrizA, matrizB);
-        // mostrar(matriz);
+        mostrar(matrizA, matrizB);
     }
 
     public static void inicializar(int[][] matrizA, int[][] matrizB, Scanner sc) {
@@ -32,15 +32,26 @@ public class Exercicio4 {
     }
 
     public static void intercambiar(int[][] matrizA, int[][] matrizB) {
-        int intercambio = matrizA;
-        matrizA = matrizB;
-        matrizB = intercambio;
+        int intercambio;
+        for (int i = 0; i < matrizA.length; i++) {
+            for (int j = 0; j < matrizA[0].length; j++) {
+                intercambio = matrizA[i][j];
+                matrizA[i][j] = matrizB[i][j];
+                matrizB[i][j] = intercambio;
+            }
+        }
     }
 
-    public static void mostrar(int[][] matriz) {
-        for (int i = 0; i < matriz.length; i++) {
-            for (int j = 0; j < matriz[0].length; j++) {
-                System.out.print(matriz[i][j] + "\t");
+    public static void mostrar(int[][] matrizA, int[][] matrizB) {
+        for (int i = 0; i < matrizA.length; i++) {
+            for (int j = 0; j < matrizA[0].length; j++) {
+                System.out.print(matrizA[i][j] + "\t");
+            }
+            System.out.println();
+        }
+        for (int i = 0; i < matrizB.length; i++) {
+            for (int j = 0; j < matrizB[0].length; j++) {
+                System.out.print(matrizB[i][j] + "\t");
             }
             System.out.println();
         }
