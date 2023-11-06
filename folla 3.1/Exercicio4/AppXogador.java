@@ -13,7 +13,5 @@ public class AppXogador {
     public static void main(String[] args) {
         Xogador xogador1 = new Xogador();
 
-        System.out.println(xogador1.getNome());
-
     }
 }
