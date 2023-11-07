@@ -1,21 +1,24 @@
-package Exercicio6;
+package exercicio6;
 
 public class AppDinosaurio {
-
     public static void main(String[] args) {
-        Dinosaurio din1 = new Dinosaurio("Rodrigo", 10);
-        Dinosaurio din2 = new Dinosaurio();
-        Dinosaurio din3 = new Dinosaurio("Pep3", 60);
 
-        System.out.println("O nome do dinosaurio 1 é: " + din1.getNome() + ". E a sua idade é: " + din1.getIdade());
-        System.out.println("O nome do dinosaurio 2 é: " + din2.getNome() + ". E a sua idade é: " + din2.getIdade());
-        System.out.println("O nome do dinosaurio 3 é: " + din3.getNome() + ". E a sua idade é: " + din3.getIdade());
+        Dinosaurio din1 = new Dinosaurio();
+        Dinosaurio din2 = new Dinosaurio("Andrea", 12);
+        Dinosaurio din3 = new Dinosaurio("paca", 4);
 
-        din1.setIdade(70);
-        din1.setNome("Cuevas");
+        System.out.println("O dinosaurio 1 chámase: " + din1.getNome() + " e ten: " + din1.getIdade() + " anos.");
+        System.out.println();
+        System.out.println("O dinosaurio 2 chámase: " + din2.getNome() + " e ten: " + din2.getIdade() + " anos.");
+        System.out.println();
 
-        System.out
-                .println("Ahora o nome do dinosaurio 1 é: " + din1.getNome() + ". E a sua idade é: " + din1.getIdade());
+        System.out.println("O dinosaurio 3 chámase: " + din3.getNome() + " e ten: " + din3.getIdade() + " anos.");
+
+        din3.setNome("Manolito");
+        din3.setIdade(6);
+        System.out.println();
+
+        System.out.println("Ahora o dinosaurio 3 chámase: " + din3.getNome() + " e ten: " + din3.getIdade() + " anos.");
 
     }
 }
