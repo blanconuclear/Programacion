@@ -1,4 +1,4 @@
-package exercicio1;
+package exercicio2;
 
 public class AppAnimal {
 
@@ -12,11 +12,15 @@ public class AppAnimal {
         animal3.getDatos();
 
         animal1.nace(animal1);
+        System.out.println("Temos " + Animal.numeroAnimais);
         animal2.nace(animal2);
+        System.out.println("Temos " + Animal.numeroAnimais);
         animal3.nace(animal3);
 
         animal1.morre(animal1);
+        System.out.println("Temos " + Animal.numeroAnimais);
         animal2.morre(animal2);
+        System.out.println("Temos " + Animal.numeroAnimais);
         animal3.morre(animal3);
 
     }

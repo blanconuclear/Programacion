@@ -33,14 +33,14 @@ public class Animal {
         this.vivo = vivo;
     }
 
-    public static void nace(Animal animal) {
+    public void nace(Animal animal) {
         if (!animal.vivo) {
             animal.vivo = true;
             System.out.println("Benvido ao mundo " + animal.nome);
         }
     }
 
-    public static void morre(Animal animal) {
+    public void morre(Animal animal) {
         if (animal.vivo) {
             animal.vivo = false;
             System.out.println(" Boa viaxe " + animal.nome);
