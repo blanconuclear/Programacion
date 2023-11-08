@@ -66,4 +66,13 @@ public class Libro {
         numLibrosVendidos++;
     }
 
+    public static int valeMais(Libro libro1, Libro libro2) {
+        if (libro1.getPrezo() > libro2.getPrezo()) {
+            return -1;
+        } else if (libro2.getPrezo() > libro1.getPrezo()) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
 }
