@@ -1,7 +1,5 @@
 /*Crea unha clase Empregado que terá como atributos o nome e a antigüidade do mesmo, ademais dun atributo es- tático que será o salarioBase dun empregado. A clase debe conter un método estático que permitirá aumentar o sa- lario base na porcentaxe indicada e un método de instancia que fará o cálculo e devolverá o salario do empregado, que será o salario base máis 10€ (constante da clase) por cada ano de antigüidade.
-Crea un programa AppEmpregado para probar a funcionalidade da clase. Crea tamén un método cambiarSalario- Base( ), que permita cambiar ese valor. O seguintes Empregados deberán ter un soldo acorde ao novo valor de sa- larioBase.
- */
-
+Crea un programa AppEmpregado para probar a funcionalidade da clase. Crea tamén un método cambiarSalario- Base( ), que permita cambiar ese valor. O seguintes Empregados deberán ter un soldo acorde ao novo valor de sa- larioBase. */
 package exercicio1;
 
 public class Empregado {

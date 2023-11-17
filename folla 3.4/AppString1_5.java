@@ -23,11 +23,3 @@ public class AppString1_5 {
         sc.close();
     }
 }
-
-/*
- * String cadea = new String("probando");
- * String cadeaNova = new String("Probando");
- * if(cadea.compareTo(cadeaNova) == 0){
- * System.out.println("As cadeas son iguais");
- * }
- */

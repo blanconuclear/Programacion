@@ -12,7 +12,7 @@ public class AppString1_3 {
 
         String frase = sc.nextLine();
 
-        frase = frase.replace("a", "");
+        frase = frase.replaceFirst("a", "");
 
         System.out.println(frase);
 
