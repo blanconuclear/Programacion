@@ -6,15 +6,14 @@ import java.util.Scanner;
  * “conxunto” de espazos en branco, só quedará un espacio. Exemplo: “o espazo”
  * quedará “o espazo”.
  */
+
 public class AppString1_6 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Dime unha frase: ");
         String frase = sc.nextLine();
-        frase = frase.trim();
-        System.out.println(frase);
-
+        String resultado = frase.trim().replaceAll(" +", " ");
+        System.out.println(resultado);
         sc.close();
     }
-
 }

@@ -7,27 +7,29 @@ import java.util.Scanner;
  */
 public class AppString1_10 {
     public static void main(String[] args) {
+
         Scanner sc = new Scanner(System.in);
+
         String cadea;
-        int quitarChar;
+        String palabra = "";
 
-        while (true) {
-            System.out.println("Dime unha cadea: ");
+        while (!palabra.equals(".")) {
+            System.out.println("Dime unha frase: ");
             cadea = sc.nextLine();
-            System.out.println("Dime o char: ");
-            quitarChar = sc.nextInt();
+            System.out.println("Dime unha palabra: ");
+            palabra = sc.nextLine();
 
-            StringBuilder cadeaFinal = new StringBuilder(cadea);
+            String cadeaMinusculas = cadea.toLowerCase();
+            String palabraMinusculas = palabra.toLowerCase();
 
-            cadeaFinal = cadeaFinal.deleteCharAt(quitarChar);
-
-            System.out.println("O resultado é: " + cadeaFinal);
-
-            if (quitarChar == ".") {
-                System.out.println("mal");
+            if (cadeaMinusculas.contains(palabraMinusculas)) {
+                System.out.println(cadeaMinusculas.replace(palabraMinusculas, "").trim().replace("  ", " "));
+            } else if (palabra.equals(".")) {
+                System.out.println("Ata logo");
+            } else {
+                System.out.println("A cadea: " + cadeaMinusculas + ". Non contén a palabra: " + palabraMinusculas);
             }
-
         }
-
+        sc.close();
     }
 }
