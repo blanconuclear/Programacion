@@ -11,13 +11,11 @@ public class AppString1_3 {
         System.out.println("Dime unha frase: ");
 
         String frase = sc.nextLine();
-
         frase = frase.replaceFirst("a", "");
 
         System.out.println(frase);
 
         sc.close();
-
     }
 
 }

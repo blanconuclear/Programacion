@@ -12,7 +12,6 @@ public class AppString1_4 {
         String frase;
 
         while (true) {
-
             System.out.println("Dime unha frase: ");
             frase = sc.nextLine();
             String fraseSenA = frase.replace("a", "");
@@ -20,9 +19,8 @@ public class AppString1_4 {
             System.out.println(fraseSenA);
 
             if (!frase.contains("a")) {
-                System.out.println("Ata logo!");
+                System.out.println(frase + " non contén a letra 'a'. Ata logo!");
                 break;
-            } else {
             }
         }
         sc.close();

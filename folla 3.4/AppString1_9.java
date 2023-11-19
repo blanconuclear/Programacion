@@ -27,5 +27,4 @@ public class AppString1_9 {
         }
         sc.close();
     }
-
 }

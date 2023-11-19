@@ -12,7 +12,6 @@ public class AppString1_1 {
         String frase;
 
         while (true) {
-
             System.out.println("Dime unha frase: ");
             frase = sc.nextLine();
             if (frase.length() > 15) {
