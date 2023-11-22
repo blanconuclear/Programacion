@@ -35,9 +35,22 @@ public class AppString1_14 {
                     break;
                 case "d":
                     StringBuilder stringBuilder = new StringBuilder(frase);
-                    String invertida = stringBuilder.reverse().toString();
+                    frase = stringBuilder.reverse().toString();
                 case "e":
 
+                    String[] palabras = frase.split(" ");
+                    String resultado = "";
+
+                    for (int i = 0; i < palabras.length; i++) {
+                        resultado += palabras[i].substring(0, 1).toUpperCase() +
+                                palabras[i].substring(1);
+                        resultado += " ";
+                    }
+                    resultado = resultado.trim();
+                    frase = resultado;
+
+                case "f":
+                    System.out.println(frase);
             }
         }
     }
