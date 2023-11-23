@@ -1,3 +1,5 @@
+package exercicio2;
+
 import java.util.Scanner;
 
 /**
@@ -10,9 +12,7 @@ public class AppFraseBuilder {
 
         FraseBuilder frase = new FraseBuilder();
 
-        String salirPrograma = "";
-
-        while (!salirPrograma.equals("h")) {
+        while (true) {
             System.out.println("a) iniciaFrase\n" +
                     "b) eliminaFrase\n" +
                     "c) mostraFrase\n" +
@@ -64,6 +64,7 @@ public class AppFraseBuilder {
 
                 case "h":
                     System.out.println("Ata logo!");
+                    break;
 
             }
 
