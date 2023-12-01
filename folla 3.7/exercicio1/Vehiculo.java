@@ -6,11 +6,15 @@ package exercicio1;
 public class Vehiculo {
 
     private String matricula;
-    private boolean alugado;
+    private boolean alugado = false;
 
     public Vehiculo(String matricula, boolean alugado) {
         this.matricula = matricula;
         this.alugado = alugado;
+    }
+
+    public Vehiculo() {
+
     }
 
     public String getMatricula() {
