@@ -48,6 +48,7 @@ public class Exercicio1 {
 
             sc.nextLine();
         }
+        sc.close();
     }
 
     // Función Menú
