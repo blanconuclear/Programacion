@@ -10,7 +10,14 @@ public class Traballador {
         this.dni = dni;
         this.nome = nome;
         this.apelido = apelido;
-        numTraballadores++;
+        if(añdlfjkasñlfkj){
+            añdslkfjñlkaj
+        }else if{adfasfa´
+                            }
+
+        numTraballadores++
+
+        ;
 
     }
 
