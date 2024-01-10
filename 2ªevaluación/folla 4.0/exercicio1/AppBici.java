@@ -16,7 +16,6 @@ public class AppBici {
                     d) Mostrar a bici con máis autonomía.
                     e) Mostrar a bici con menos autonomía.
                     f) Sair
-
                 """);
 
         String opcion = sc.nextLine();
@@ -54,6 +53,7 @@ public class AppBici {
                     break;
 
                 case "b":
+
                     for (int i = 0; i < BiciElect.getNumBicis(); i++) {
                         System.out.println("O nome é:" + biciElect[i].getNome());
                         System.out.println("A marca é: " + biciElect[i].getMarca());
@@ -68,17 +68,45 @@ public class AppBici {
                     System.out.println("que posición queres cambiar:");
                     int posicion = sc.nextInt();
 
-                    System.out.println("Dime o novo nome:");
+                    System.out.println("Dime o novo nome: ");
                     String novoNome = sc.nextLine();
                     biciElect[posicion].setNome(novoNome);
 
+                    System.out.println("Dime a marca: ");
+                    String novaMarca = sc.nextLine();
+                    biciElect[posicion].setMarca(novaMarca);
+
+                    System.out.println("Dime a nova automonía: ");
+                    int novaAutonomia = sc.nextInt();
+                    biciElect[posicion].setAutonomiaKms(novaAutonomia);
+                    ;
+
+                    break;
+
                 case "d":
+
+                    BiciElect max = biciElect[0];
+
+                    for (int i = 0; i < BiciElect.getNumBicis(); i++) {
+                        max = BiciElect.comparaAutonomiaMax(biciElect[i], max);
+                    }
+                    System.out.println("A bici con maior autonomía é: " + max.getNome());
+                    break;
+
+                case "e":
+
+                    BiciElect min = biciElect[0];
+
+                    for (int i = 0; i < BiciElect.getNumBicis(); i++) {
+                        min = BiciElect.comparaAutonomiaMin(biciElect[i], min);
+                    }
+                    System.out.println("A bici con maior autonomía é: " + min.getNome());
+                    break;
 
                 case "f":
                     System.out.println("Adios");
 
                     break;
-
             }
 
             opcion = sc.nextLine();

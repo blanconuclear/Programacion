@@ -49,8 +49,18 @@ public class BiciElect {
         BiciElect.numBicis = numBicis;
     }
 
-    public BiciElect comparaAutonomía(BiciElect bici1, BiciElect bici2) {
+    public static BiciElect comparaAutonomiaMax(BiciElect bici1, BiciElect bici2) {
+
         if (bici1.autonomiaKms > bici2.autonomiaKms) {
+            return bici1;
+        }
+        return bici2;
+
+    }
+
+    public static BiciElect comparaAutonomiaMin(BiciElect bici1, BiciElect bici2) {
+
+        if (bici1.autonomiaKms < bici2.autonomiaKms) {
             return bici1;
         }
         return bici2;
