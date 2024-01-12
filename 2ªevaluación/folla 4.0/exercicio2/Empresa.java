@@ -6,12 +6,14 @@ public class Empresa {
     private String cif;
     private String localicade;
     private Empregado[] arrayEmpregado;
+    public static int numEmpregados;
 
     public Empresa(String nome) {
         this.nome = nome;
         this.cif = "A123125434";
         this.localicade = "Santiago de Compostela";
         this.arrayEmpregado = new Empregado[6];
+        numEmpregados++;
     }
 
     public Empresa(String nome, int numEmpregados) {
@@ -52,5 +54,42 @@ public class Empresa {
     public void setArrayEmpregado(Empregado[] arrayEmpregado) {
         this.arrayEmpregado = arrayEmpregado;
     }
+
+    // C
+    public int getNumEmpregados() {
+        int numEmpregados = 0;
+        for (int i = 0; i < 6; i++) {
+            if (arrayEmpregado[i] != null) {
+                numEmpregados++;
+            }
+        }
+        return numEmpregados;
+    }
+
+    public boolean comprobarEmpregado(int numIdentificacion) {
+        for (int i = 0; i < getNumEmpregados() - 1; i++) {
+            if (arrayEmpregado[i].getNumeroIdentificacion() == numIdentificacion) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public String getNomeEmpregado(int numIdentificacion) {
+        for (int i = 0; i < getNumEmpregados() - 1; i++) {
+            return arrayEmpregado[i].getNome();
+        }
+        return " ";
+    }
+
+    public void getNomesEmpregados() {
+        for (int i = 0; i < getNumEmpregados() - 1; i++) {
+            System.out.println(arrayEmpregado[i].getNome());
+        }
+    }
+
+    public int obterNumeroIdentificacion(int nu)
+
+
 
 }

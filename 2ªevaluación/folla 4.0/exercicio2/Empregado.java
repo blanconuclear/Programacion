@@ -76,4 +76,10 @@ public class Empregado {
         }
     }
 
+    @Override
+    public String toString() {
+        return "Empregado [nome=" + nome + ", numeroIdentificacion=" + numeroIdentificacion + ", categoria=" + categoria
+                + ", soldo=" + soldo + "]";
+    }
+
 }
