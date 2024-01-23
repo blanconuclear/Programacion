@@ -1,4 +1,4 @@
-package exercicio1;
+package exercicio2;
 
 class Ornitorrinco extends Mamifero implements Ovipero {
 
