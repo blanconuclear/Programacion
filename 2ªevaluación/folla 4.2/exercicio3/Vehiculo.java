@@ -3,18 +3,18 @@ package exercicio3;
 /**
  * Vehiculo
  */
-public abstract class Vehiculo {
+abstract class Vehiculo {
 
-    private int velocidadeActual = 0;
-    private int velocidadeMaxima = 0;
+    int velocidadeActual;
+    int velocidadeMaxima;
 
-    abstract int acelerar();
+    abstract void acelerar(int incremento);
 
-    abstract int frear();
+    abstract void frear(int decremento);
 
-    @Override
-    public String toString() {
-        return "Vehiculo [velocidadeActual=" + velocidadeActual + ", velocidadeMaxima=" + velocidadeMaxima + "]";
+    void imprimir() {
+        System.out.println("Velocidad actual: " + velocidadeActual + " km/h");
+        System.out.println("Velocidad máxima: " + velocidadeMaxima + " km/h");
     }
 
 }

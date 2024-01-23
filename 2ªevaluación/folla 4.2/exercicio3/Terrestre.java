@@ -1,28 +1,26 @@
 package exercicio3;
 
 /**
- * terrestre
+ * Terrestre
  */
 public class Terrestre extends Vehiculo {
 
-    private int cantidadeRodas;
-    private String tipoVehiculo;
+    int cantidadeRodas;
+    String tipoVehiculo;
 
-    public Terrestre(int cantidadeRodas, String tipoVehiculo) {
-        this.cantidadeRodas = cantidadeRodas;
-        this.tipoVehiculo = tipoVehiculo;
+    @Override
+    void acelerar(int incremento) {
+        velocidadeActual += incremento;
+        if (velocidadeActual > velocidadeMaxima) {
+            velocidadeActual = velocidadeMaxima;
+        }
     }
 
     @Override
-    int acelerar() {
-        // TODO Auto-generated method stub
-        return 0;
+    void frear(int decremento) {
+        velocidadeActual -= decremento;
+        if (velocidadeActual < 0) {
+            velocidadeActual = 0;
+        }
     }
-
-    @Override
-    int frear() {
-        // TODO Auto-generated method stub
-        return 0;
-    }
-
 }
