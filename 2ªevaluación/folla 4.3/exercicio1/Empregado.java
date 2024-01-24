@@ -5,20 +5,20 @@ package exercicio1;
  */
 public class Empregado extends Persoa {
 
-    int novoSoldo;
+    private int soldo;
 
-    public int getNovoSoldo() {
-        return novoSoldo;
+    public Empregado(String nome, String apelido, int idade, int soldo) {
+        super(nome, apelido, idade);
+        this.soldo = soldo;
     }
 
-    public void setNovoSoldo(int novoSoldo) {
-        this.novoSoldo = novoSoldo;
+    public int getSoldo() {
+        return soldo;
     }
 
     @Override
-    void dameDescricion() {
-        // TODO Auto-generated method stub
-
+    String dameDescricion() {
+        return "Nome: " + nome + ", Apelido: " + apelido + ", Idade: " + idade + ", Soldo: " + soldo;
     }
 
 }

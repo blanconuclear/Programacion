@@ -5,18 +5,20 @@ package exercicio1;
  */
 abstract class Persoa {
 
-    String nome;
-    String apelido;
-    int idade;
+    protected String nome;
+    protected String apelido;
+    protected int idade;
 
-    public String getNome() {
+    public Persoa(String nome, String apelido, int idade) {
+        this.nome = nome;
+        this.apelido = apelido;
+        this.idade = idade;
+    }
+
+    abstract String dameDescricion();
+
+    String dameNome() {
         return nome;
     }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    abstract void dameDescricion();
 
 }
