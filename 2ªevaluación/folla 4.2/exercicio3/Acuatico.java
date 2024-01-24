@@ -1,16 +1,16 @@
 package exercicio3;
 
 /**
- * Terrestre
+ * Acuatico
  */
-public class Terrestre extends Vehiculo implements Motor {
+public class Acuatico extends Vehiculo implements Motor, Vela {
 
-    int cantidadeRodas;
-    String tipoVehiculo;
+    String superficie;
+    int capacidadeViaxeiros;
 
-    public Terrestre(int cantidadeRodas, String tipoVehiculo, int velocidadeActual, int velocidadeMaxima) {
-        this.cantidadeRodas = cantidadeRodas;
-        this.tipoVehiculo = tipoVehiculo;
+    public Acuatico(String superficie, int capacidadeViaxeiros, int velocidadeActual, int velocidadeMaxima) {
+        this.superficie = superficie;
+        this.capacidadeViaxeiros = capacidadeViaxeiros;
         this.velocidadeActual = velocidadeActual;
         this.velocidadeMaxima = velocidadeMaxima;
     }
@@ -27,6 +27,13 @@ public class Terrestre extends Vehiculo implements Motor {
     void frear(int decremento) {
         velocidadeActual -= decremento;
         if (velocidadeActual < 0) {
+            velocidadeActual = 0;
+        }
+    }
+
+    @Override
+    public void recomendarVelocidade(int velocidadeVento) {
+        if (velocidadeVento > 60 && velocidadeVento < 10) {
             velocidadeActual = 0;
         }
     }
