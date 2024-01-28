@@ -18,7 +18,7 @@ public class Empregado extends Persoa {
 
     @Override
     String dameDescricion() {
-        return "Nome: " + nome + ", Apelido: " + apelido + ", Idade: " + idade + ", Soldo: " + soldo;
+        return "Nome: " + nome + ", Apelido: " + apelido + ", Idade: " + idade + ", Soldo: " + soldo + "€";
     }
 
 }
