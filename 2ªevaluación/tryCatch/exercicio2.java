@@ -20,17 +20,18 @@ public class exercicio2 {
     }
 
     public static void main(String[] args) {
-
-        try {
-            int resultado = 1;
-            int dameNumero = dameNum();
-            System.out.println("");
-            for (int i = 1; i < dameNumero + 1; i++) {
-                resultado = resultado * i;
-                System.out.println(resultado);
+        int resultado = 1;
+        while (resultado == 1) {
+            try {
+                int dameNumero = dameNum();
+                System.out.println("");
+                for (int i = 1; i < dameNumero + 1; i++) {
+                    resultado = resultado * i;
+                    System.out.println(resultado);
+                }
+            } catch (Exception e) {
+                System.out.println("Excepción recibida --> " + e);
             }
-        } catch (Exception e) {
-            System.out.println("Excepción recibida --> " + e);
         }
 
     }
