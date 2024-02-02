@@ -45,4 +45,11 @@ class GPS {
         this.hora = hora;
     }
 
+    @Override
+    public String toString() {
+        return "GPS:\nCoordenada X: " + coordenadaX +
+                "\nCoordenada Y: " + coordenadaY +
+                "\nFecha: " + fecha +
+                "\nHora: " + hora;
+    }
 }

@@ -1,19 +1,42 @@
 package exercicio2;
 
 class Barco {
-    private String nombre;
-    private int numeroTripulacion;
-    private double capacidadCarga;
+    private String nome;
+    private int numeroTripulantes;
+    private int capacidadeCarga;
 
-    public Barco(String nombre, int numeroTripulacion, double capacidadCarga) {
-        this.nombre = nombre;
-        this.numeroTripulacion = numeroTripulacion;
-        this.capacidadCarga = capacidadCarga;
+    public Barco(String nome, int numeroTripulantes, int capacidadeCarga) {
+        this.nome = nome;
+        this.numeroTripulantes = numeroTripulantes;
+        this.capacidadeCarga = capacidadeCarga;
     }
 
-    @Override
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public int getNumeroTripulantes() {
+        return numeroTripulantes;
+    }
+
+    public void setNumeroTripulantes(int numeroTripulantes) {
+        this.numeroTripulantes = numeroTripulantes;
+    }
+
+    public int getCapacidadeCarga() {
+        return capacidadeCarga;
+    }
+
+    public void setCapacidadeCarga(int capacidadeCarga) {
+        this.capacidadeCarga = capacidadeCarga;
+    }
+
     public String toString() {
-        return "Barco [nombre=" + nombre + ", numeroTripulacion=" + numeroTripulacion + ", capacidadCarga="
-                + capacidadCarga + "]";
+        return "Nome: " + nome + "\nNúmero de Tripulantes: " + numeroTripulantes +
+                "\nCapacidade de Carga: " + capacidadeCarga;
     }
 }
