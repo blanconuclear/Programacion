@@ -1,20 +1,5 @@
-public class DNIException extends Exception{
-
-    private String mensaxeErro;
-
-    public DNIException(String mensaxeErro){
-        this.mensaxeErro = mensaxeErro;
-        
+class DNIException extends Exception {
+    public DNIException(String mensagem) {
+        super(mensagem);
     }
-
-    public String getMessage() {
-        return mensaxeErro;
-    }
-
-    @Override
-    public String toString() {
-        return "mensaxe Erro=" + mensaxeErro;
-    }
-
-    
 }

@@ -1,32 +1,31 @@
-public class DNI {
-
+class DNI {
     private String DNI;
 
-    public DNI(String dni) throws DNIException{
+    public DNI(String dni) throws DNIException {
         this.DNI = dni;
 
-        //Comprobación que tenga 8 digitos
-        if (dni.length() < 8 || dni.length() > 8) {
-            throw new DNIException(dni);
+        // Comprobación de que ten 8 díxitos
+        if (dni.length() != 9) {
+            throw new DNIException("O DNI debe ter 8 díxitos.");
         }
 
-        //paso a dividir el dni la parte de número y la parte de letra
-        int dniNumero = Integer.parseInt(dni.substring(0,6));
-        String dniLetra = dni.substring(7);
-        
-        
+        // Dividir o DNI na parte do número e na parte da letra
+        int dniNumero;
+        try {
+            dniNumero = Integer.parseInt(dni.substring(0, 8));
+        } catch (NumberFormatException ex) {
+            throw new DNIException("Os primeiros 8 caracteres deben ser díxitos.");
+        }
 
-        //Comprobar que la letra, sea una letra
-        boolean comprobarLetra = Character.isLetter(dniLetra.charAt(0));
+        String dniLetra = dni.substring(8);
 
-        if (comprobarLetra == false ) {
-            throw new DNIException(dniLetra);
+        // Comprobar que a letra sexa unha letra
+        if (!Character.isLetter(dniLetra.charAt(0))) {
+            throw new DNIException("O último carácter debe ser unha letra.");
         }
     }
 
     public String getDNI() {
         return DNI;
     }
-
-
 }

@@ -1,26 +1,29 @@
 import java.util.Scanner;
 
 public class AppDni {
-
     public static void main(String[] args) {
-        
-        Scanner teclado = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         DNI[] arrayDni = new DNI[3];
 
-        String numeroIntroducido;
-        System.out.println("Dime o dni");
-        numeroIntroducido = teclado.nextLine();
-
         for (int i = 0; i < arrayDni.length; i++) {
-           
-            try {
-                DNI dni = new DNI(numeroIntroducido);
-            } catch (DNIException e) {
-                System.out.println(e.getMessage());
+            boolean valido = false;
+            while (!valido) {
+                try {
+                    System.out.print("Introduza o DNI " + (i + 1) + ": ");
+                    String input = scanner.nextLine();
+                    arrayDni[i] = new DNI(input);
+                    valido = true;
+                } catch (DNIException e) {
+                    System.out.println("DNI incorrecto: " + e.getMessage());
+                }
             }
         }
 
+        scanner.close();
 
-
+        System.out.println("Os arrayDni introducidos son:");
+        for (DNI dni : arrayDni) {
+            System.out.println(dni.getDNI());
+        }
     }
 }
