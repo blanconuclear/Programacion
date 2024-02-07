@@ -21,7 +21,7 @@ public class AppDni {
 
         scanner.close();
 
-        System.out.println("Os arrayDni introducidos son:");
+        System.out.println("Os DNI introducidos son:");
         for (DNI dni : arrayDni) {
             System.out.println(dni.getDNI());
         }
