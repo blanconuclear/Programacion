@@ -8,7 +8,7 @@ import java.util.Scanner;
  */
 public class AppClienteLista {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         Scanner sc = new Scanner(System.in);
         ArrayList<Cliente> ListaClientes = new ArrayList<>();
 
@@ -36,9 +36,12 @@ public class AppClienteLista {
                 case "b":
                     mostrarDatos(ListaClientes);
                     break;
-
             }
 
+            Thread.sleep(700);
+
+            System.out.println("");
+            System.out.println("");
             System.out.println(menu);
             opcion = sc.nextLine();
 
@@ -65,7 +68,6 @@ public class AppClienteLista {
             System.out.println("Nome: " + cliente.getNome());
             System.out.println("Teléfono: " + cliente.getTelefono());
             System.out.println("Mail: " + cliente.getMail());
-            System.out.println();
         }
     }
 }
