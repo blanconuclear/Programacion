@@ -26,15 +26,22 @@ public class Exercicio6 {
             System.out.println("A carpeta xa existe.");
         }
 
-        for (int i = 0; i < 4; i++) {
-            System.out.println("Escribe a frase número " + (i + 1) + ": ");
-            String frase = sc.nextLine();
+        System.out.println("Cantos arquivos queres crear?");
+        int nArchivos = sc.nextInt();
 
-            String rutaArchivo = ruta + "/" + nomeCarpeta + "/exemplo" + (i + 1) + ".txt";
-            File archivo = new File(rutaArchivo);
-            archivo.createNewFile();
-            Files.write(archivo.toPath(), frase.getBytes());
+        if (nArchivos <= 5) {
+            for (int i = 0; i < nArchivos; i++) {
+                System.out.println("Escribe a frase número " + (i + 1) + ": ");
+                String frase = sc.next();
+                String rutaArchivo = ruta + "/" + nomeCarpeta + "/exemplo" + (i + 1) + ".txt";
+                File archivo = new File(rutaArchivo);
+                archivo.createNewFile();
+                Files.write(archivo.toPath(), frase.getBytes());
+            }
+        } else {
+            System.out.println("Non se ponden crear mais de 4 arquivos.");
         }
+
         sc.close();
     }
 }
