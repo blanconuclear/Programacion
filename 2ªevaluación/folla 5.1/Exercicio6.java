@@ -15,9 +15,10 @@ public class Exercicio6 {
     public static void main(String[] args) throws IOException {
         Scanner sc = new Scanner(System.in);
         String nomeCarpeta = "ficheirosTemporais";
-        String ruta = "/Users/efrencorzonvazquez/Desktop";
+        String ruta = "/Users/efrencorzonvazquez/Desktop"; // Teño a ruta comentada, porque senon da error en outros
+                                                           // pc(obviamente)
 
-        File carpeta = new File(ruta + "/" + nomeCarpeta);
+        File carpeta = new File(nomeCarpeta);
         boolean creado = carpeta.mkdirs();
 
         if (creado) {
@@ -33,7 +34,7 @@ public class Exercicio6 {
             for (int i = 0; i < nArchivos; i++) {
                 System.out.println("Escribe a frase número " + (i + 1) + ": ");
                 String frase = sc.next();
-                String rutaArchivo = ruta + "/" + nomeCarpeta + "/exemplo" + (i + 1) + ".txt";
+                String rutaArchivo = /* ruta + "/" + */nomeCarpeta + "/exemplo" + (i + 1) + ".txt";
                 File archivo = new File(rutaArchivo);
                 archivo.createNewFile();
                 Files.write(archivo.toPath(), frase.getBytes());
