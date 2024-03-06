@@ -64,7 +64,7 @@ public class Actividade {
     }
 
     public String toStringToFile() {
-        return codActividade + "|" + nomeActividade + "|" + horasSemanais + "|" + prezoActividade + "|"
+        return codActividade + ";" + nomeActividade + ";" + horasSemanais + ";" + prezoActividade + ";"
                 + salaActividade;
     }
 
@@ -80,5 +80,4 @@ public class Actividade {
         }
         return true;
     }
-
 }

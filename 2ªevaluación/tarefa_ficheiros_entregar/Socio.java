@@ -5,18 +5,19 @@ import java.util.Arrays;
  */
 public class Socio {
 
+    private int codSocio;
     private String nome;
     private String apelido;
-    private int codSocio;
     private String email;
-    private int dataNacemento;
+    private String dataNacemento;
     private int[] actividadesInscrito = new int[3];
 
-    public Socio(String nome, String apelido, int codSocio, String email, int dataNacemento,
+    public Socio(int codSocio, String nome, String apelido, String email, String dataNacemento,
             int[] actividadesInscrito) {
+
+        this.codSocio = codSocio;
         this.nome = nome;
         this.apelido = apelido;
-        this.codSocio = codSocio;
         this.email = email;
         this.dataNacemento = dataNacemento;
         this.actividadesInscrito = actividadesInscrito;
@@ -54,11 +55,11 @@ public class Socio {
         this.email = email;
     }
 
-    public int getDataNacemento() {
+    public String getDataNacemento() {
         return dataNacemento;
     }
 
-    public void setDataNacemento(int dataNacemento) {
+    public void setDataNacemento(String dataNacemento) {
         this.dataNacemento = dataNacemento;
     }
 
