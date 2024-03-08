@@ -1,3 +1,4 @@
+import java.sql.Date;
 import java.util.Arrays;
 
 /**
@@ -9,18 +10,23 @@ public class Socio {
     private String nome;
     private String apelido;
     private String email;
-    private String dataNacemento;
+    private Date dataNacemento;
     private int[] actividadesInscrito = new int[3];
 
-    public Socio(int codSocio, String nome, String apelido, String email, String dataNacemento,
-            int[] actividadesInscrito) {
-
+    public Socio(int codSocio, String nome, String apelido, String email, Date dataNacemento) {
         this.codSocio = codSocio;
         this.nome = nome;
         this.apelido = apelido;
         this.email = email;
         this.dataNacemento = dataNacemento;
-        this.actividadesInscrito = actividadesInscrito;
+    }
+
+    public int getCodSocio() {
+        return codSocio;
+    }
+
+    public void setCodSocio(int codSocio) {
+        this.codSocio = codSocio;
     }
 
     public String getNome() {
@@ -39,14 +45,6 @@ public class Socio {
         this.apelido = apelido;
     }
 
-    public int getCodSocio() {
-        return codSocio;
-    }
-
-    public void setCodSocio(int codSocio) {
-        this.codSocio = codSocio;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -55,11 +53,11 @@ public class Socio {
         this.email = email;
     }
 
-    public String getDataNacemento() {
+    public Date getDataNacemento() {
         return dataNacemento;
     }
 
-    public void setDataNacemento(String dataNacemento) {
+    public void setDataNacemento(Date dataNacemento) {
         this.dataNacemento = dataNacemento;
     }
 
@@ -73,9 +71,12 @@ public class Socio {
 
     @Override
     public String toString() {
-        return "Socio [nome=" + nome + ", apelido=" + apelido + ", codSocio=" + codSocio + ", email=" + email
+        return "Socio [codSocio=" + codSocio + ", nome=" + nome + ", apelido=" + apelido + ", email=" + email
                 + ", dataNacemento=" + dataNacemento + ", actividadesInscrito=" + Arrays.toString(actividadesInscrito)
                 + "]";
     }
 
+    public String toStringParaFichero() {
+        return nome + ";" + apelido + ";" + email + ";" + dataNacemento;
+    }
 }

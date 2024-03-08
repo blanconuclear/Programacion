@@ -9,12 +9,38 @@ public class Actividade {
     private String salaActividade;
 
     public Actividade(int codActividade, String nomeActividade, int horasSemanais, int prezoActividade,
-            String salaActividade) {
+            String salaActividade) throws ExcepcionsSociedade {
         this.codActividade = codActividade;
         this.nomeActividade = nomeActividade;
         this.horasSemanais = horasSemanais;
         this.prezoActividade = prezoActividade;
         this.salaActividade = salaActividade;
+
+        validarDatos();
+    }
+
+    private void validarDatos() throws ExcepcionsSociedade {
+        if (!comprobarHorasSemanais(horasSemanais)) {
+            throw new ExcepcionsSociedade("As horas deben estar entre 2 e 3", 1);
+        }
+        if (!comprobarPrezo(prezoActividade)) {
+            throw new ExcepcionsSociedade("O prezo debe ser inferior a 50", 2);
+        }
+        if (!comprobarSala(salaActividade)) {
+            throw new ExcepcionsSociedade("Nome da sala non válido, debe ser Castelao ou Dali", 3);
+        }
+    }
+
+    private boolean comprobarHorasSemanais(int horasSemanais) {
+        return horasSemanais >= 2 && horasSemanais <= 3;
+    }
+
+    private boolean comprobarPrezo(int prezoActividade) {
+        return prezoActividade < 50;
+    }
+
+    private boolean comprobarSala(String salaActividade) {
+        return salaActividade.equals("castelao") || salaActividade.equals("dali");
     }
 
     public int getCodActividade() {
@@ -59,8 +85,9 @@ public class Actividade {
 
     @Override
     public String toString() {
-        return "Actividade [codActividade=" + codActividade + ", nomeActividade=" + nomeActividade + ", horasSemanais="
-                + horasSemanais + ", prezoActividade=" + prezoActividade + ", salaActividade=" + salaActividade + "]";
+        return "Actividade [codActividade=" + codActividade + ", nomeActividade=" + nomeActividade
+                + ", horasSemanais=" + horasSemanais + ", prezoActividade=" + prezoActividade + ", salaActividade="
+                + salaActividade + "]";
     }
 
     public String toStringToFile() {
@@ -68,16 +95,4 @@ public class Actividade {
                 + salaActividade;
     }
 
-    public boolean validarDatos() {
-        if (horasSemanais < 2 || horasSemanais > 3) {
-            return false;
-        }
-        if (prezoActividade > 50) {
-            return false;
-        }
-        if (!salaActividade.equals("Castelao") && !salaActividade.equals("Dalí")) {
-            return false;
-        }
-        return true;
-    }
 }
