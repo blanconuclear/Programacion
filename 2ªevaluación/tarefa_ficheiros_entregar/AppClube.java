@@ -217,7 +217,7 @@ public class AppClube {
 
         try (BufferedWriter writer = Files.newBufferedWriter(archivo)) {
             for (Socio socio : socios) {
-                // Formatear la línea con los datos del socio
+
                 String linea = String.format("%d;%s;%s;%s;%s",
                         socio.getCodSocio(), socio.getNome().toLowerCase(), socio.getApelido().toLowerCase(),
                         socio.getEmail().toLowerCase(), socio.getDataNacemento().toString());
