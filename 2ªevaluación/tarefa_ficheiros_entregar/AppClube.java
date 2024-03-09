@@ -1,6 +1,8 @@
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -19,6 +21,10 @@ public class AppClube {
 
         ArrayList<Actividade> actividades = new ArrayList<>();
         ArrayList<Socio> socios = new ArrayList<>();
+
+        // Cargar Datos
+        cargarDatosActividades(actividades);
+        // cargarDatosSocios(socios);
 
         String menu = """
                 Benvidos ao Centro Cultura
@@ -61,7 +67,11 @@ public class AppClube {
                     break;
                 case "e":
                     engadirSocio(socios);
-                    gardarSociosEnFicheiro(socios);
+                    try {
+                        gardarSociosEnFicheiro(socios);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                     break;
                 case "f":
                     eliminarSocio(socios);
@@ -76,7 +86,7 @@ public class AppClube {
                     // designarActividade(socios);
                     break;
                 case "j":
-                    // mostrarActividadeConcreta(socios);
+                    // mostrarActividadeSocioConcreto(actividades);
                     break;
                 default:
                     break;
@@ -138,8 +148,14 @@ public class AppClube {
         String email = JOptionPane.showInputDialog("Introduce o email do socio: ");
         Date dataNacemento = Date
                 .valueOf(JOptionPane.showInputDialog("Introduce a data de nacemento do socio (FORMATO AAAA-MM-DD): "));
-        Socio socio = new Socio(ultimoCodigoSocio, nome, apelido, email, dataNacemento);
-        socios.add(socio);
+
+        try {
+            ultimoCodigoSocio++;
+            Socio socio = new Socio(ultimoCodigoSocio, nome, apelido, email, dataNacemento);
+            socios.add(socio);
+        } catch (ExcepcionsSociedade e) {
+            e.printStackTrace();
+        }
     }
 
     // Mostrar socios
@@ -165,16 +181,16 @@ public class AppClube {
     public static void buscarSocioApelido(ArrayList<Socio> socios) {
         String apelidoSocio = JOptionPane.showInputDialog("Ingrese o apelido polo que quere buscar: ");
         String almacenarDatos = "";
-        boolean bandera = false;
+        boolean comprobante = false;
 
         for (int i = 0; i < socios.size(); i++) {
             if (socios.get(i).getApelido().equals(apelidoSocio)) {
                 almacenarDatos = socios.get(i).toString();
-                bandera = true;
+                comprobante = true;
                 break;
             }
         }
-        if (bandera == false) {
+        if (comprobante == false) {
 
             JOptionPane.showMessageDialog(null, "Ese apelido non existe");
         } else {
@@ -196,21 +212,54 @@ public class AppClube {
 
     // Crear e escribir archivo SOCIO
 
-    public static void gardarSociosEnFicheiro(ArrayList<Socio> socios) {
+    public static void gardarSociosEnFicheiro(ArrayList<Socio> socios) throws IOException {
         Path archivo = Paths.get("socios.txt");
 
         try (BufferedWriter writer = Files.newBufferedWriter(archivo)) {
             for (Socio socio : socios) {
-                writer.write(socio.toStringParaFichero());
+                // Formatear la línea con los datos del socio
+                String linea = String.format("%d;%s;%s;%s;%s",
+                        socio.getCodSocio(), socio.getNome().toLowerCase(), socio.getApelido().toLowerCase(),
+                        socio.getEmail().toLowerCase(), socio.getDataNacemento().toString());
+                writer.write(linea);
                 writer.newLine();
             }
-            JOptionPane.showMessageDialog(null, "Socio gardado correctamente no ficheiro.", "Éxito",
-                    JOptionPane.INFORMATION_MESSAGE);
-        } catch (IOException e) {
-            JOptionPane.showMessageDialog(null, "Error o gardar o socio no ficheiro: " + e.getMessage(),
-                    "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    // Cargar ficheiro actividades
+    public static void cargarDatosActividades(ArrayList<Actividade> actividades) {
+        File archivo = new File("actividades.txt");
+        if (!archivo.exists()) {
+            System.out.println("");
+            return;
         }
 
+        try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                String[] datos = linea.split(";");
+                int codActividade = Integer.parseInt(datos[0]);
+                String nomeActividade = datos[1];
+                int horasSemanais = Integer.parseInt(datos[2]);
+                int precioActividade = Integer.parseInt(datos[3]);
+                String salaActividade = datos[4];
+                try {
+                    actividades.add(
+                            new Actividade(codActividade, nomeActividade, horasSemanais, precioActividade,
+                                    salaActividade));
+                } catch (ExcepcionsSociedade e) {
+                    e.printStackTrace();
+                }
+            }
+
+            System.out.println("Datos dentro do ficheiro de actividades:");
+            for (Actividade actividade : actividades) {
+                System.out.println(actividade.toString());
+            }
+        } catch (IOException e) {
+            System.out.println("Error o cargar as actividades do ficheiro: " + e.getMessage());
+        }
     }
 
 }

@@ -1,0 +1,4 @@
+1;fútbol;2;40;castelao
+2;baloncesto;3;35;dali
+3;natación;2;30;castelao
+4;yoga;1;25;dali

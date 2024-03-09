@@ -1,11 +1,10 @@
-import java.sql.Date;
 import java.util.Arrays;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import java.sql.Date;
+import java.time.LocalDate;
 
-/**
- * Socio
- */
 public class Socio {
-
     private int codSocio;
     private String nome;
     private String apelido;
@@ -13,12 +12,36 @@ public class Socio {
     private Date dataNacemento;
     private int[] actividadesInscrito = new int[3];
 
-    public Socio(int codSocio, String nome, String apelido, String email, Date dataNacemento) {
+    public Socio(int codSocio, String nome, String apelido, String email, Date dataNacemento)
+            throws ExcepcionsSociedade {
         this.codSocio = codSocio;
         this.nome = nome;
         this.apelido = apelido;
         this.email = email;
         this.dataNacemento = dataNacemento;
+
+        validarDatos();
+    }
+
+    private void validarDatos() throws ExcepcionsSociedade {
+        if (!comprobarEmail(email)) {
+            throw new ExcepcionsSociedade("O email introducido non é válido", 4);
+        }
+        if (!comprobarDataNacemento(dataNacemento)) {
+            throw new ExcepcionsSociedade("A data de nacemento non é válida", 5);
+        }
+    }
+
+    private boolean comprobarEmail(String email) {
+        Pattern patron = Pattern.compile(
+                "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
+        Matcher match = patron.matcher(email);
+        return match.find();
+    }
+
+    private boolean comprobarDataNacemento(Date dataNacemento) {
+        LocalDate fecha = dataNacemento.toLocalDate();
+        return fecha.isBefore(LocalDate.now());
     }
 
     public int getCodSocio() {
