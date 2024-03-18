@@ -1,0 +1,1 @@
+Persona [nombre=jose , edad=56, direccion=coru]
