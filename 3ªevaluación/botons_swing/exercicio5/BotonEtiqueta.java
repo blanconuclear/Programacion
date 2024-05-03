@@ -1,15 +1,16 @@
-package exercicio4;
+package exercicio5;
+
 /*
- * 
- * Programa que pregunte cál é a suma de dous números menores que 4, xerados
- * aleatoriamente. O usuario deberá dar a resposta pulsando botóns con números
- * do 0 ao 6. O que pulsa o usuario deberase ver nunha etiqueta. O programa
- * deberá mostrar noutra etiqueta se o resultado é correcto ou incorrecto.
+ * Modifica o programa anterior para que o resultado se mostre nunha caixa de
+ * texto: JTextField. O usuario poderá agora introducir o valor directamente
+ * escribindo na caixa de texto. Para traducir o String a enteiro emprega o
+ * método Integer.parseInt(String aa), sendo aa o texto que hai na caixa de
+ * texto: caixatexto.getText(). Engade un botón “Comprobar” que sexa o que faga
+ * que se realice a comprobación entre a suma e o valor que hai na caixa de
+ * texto.
  */
 
 import javax.swing.*;
-import javax.swing.event.*;
-import java.awt.*;
 import java.awt.event.*;
 
 public class BotonEtiqueta extends JFrame {
@@ -28,10 +29,13 @@ public class BotonEtiqueta extends JFrame {
     JButton oboton4 = new JButton("4");
     JButton oboton5 = new JButton("5");
     JButton oboton6 = new JButton("6");
+    JButton botonComprobar = new JButton("Comprobar");
 
     JLabel aetiqueta = new JLabel(""); // UNHA ETIQUETA
     JLabel aetiqueta2 = new JLabel("");
     JPanel opanel = new JPanel(); // UN PANEL. OBRIGATORIO!!
+
+    JTextField caixaTexto = new JTextField();
 
     /** CONSTRUCTOR */
     public BotonEtiqueta() {
@@ -55,9 +59,12 @@ public class BotonEtiqueta extends JFrame {
         oboton4.setBounds(50, 200, 50, 50);
         oboton5.setBounds(50, 250, 50, 50);
         oboton6.setBounds(50, 350, 50, 50);
+        botonComprobar.setBounds(50, 500, 200, 50);
+
+        caixaTexto.setBounds(300, 500, 50, 50);
 
         aetiqueta.setBounds(200, 400, 150, 40);
-        aetiqueta2.setBounds(240, 440, 150, 40);
+        aetiqueta2.setBounds(240, 440, 500, 40);
         opanel.setLayout(null); // NECESARIO PARA QUE OS OBXECTOS NON SE MOVAN CANDO OS COLOQUEMOS
     }
 
@@ -69,12 +76,14 @@ public class BotonEtiqueta extends JFrame {
         opanel.add(oboton4);
         opanel.add(oboton5);
         opanel.add(oboton6);
+        opanel.add(botonComprobar);
         opanel.add(aetiqueta);
         opanel.add(aetiqueta2);
+        opanel.add(caixaTexto);
         // FACEMOS QUE O PANEL DO FRAME SEXA O PANEL QUE DEFINIMOS NOS.
         getContentPane().add(opanel);
 
-        aetiqueta.setText(nRamdon1 + " + " + nRamdon2 + " é igual a?: ");
+        aetiqueta.setText(nRamdon1 + " + " + nRamdon2 + " é igual a: ");
 
     }
 
@@ -87,6 +96,8 @@ public class BotonEtiqueta extends JFrame {
         oboton4.addActionListener(new BotonListener());
         oboton5.addActionListener(new BotonListener());
         oboton6.addActionListener(new BotonListener());
+        botonComprobar.addActionListener(new BotonListenerComprobar());
+
     }
 
     // DEFINIMOS AS CLASES LISTENERS:
@@ -109,10 +120,29 @@ public class BotonEtiqueta extends JFrame {
 
             if (numeroPresionado == suma) {
                 aetiqueta.setText("Correcto");
-                aetiqueta2.setText(nRamdon1 + " + " + nRamdon2 + " é igual a?: " + suma);
+                aetiqueta2.setText(nRamdon1 + " + " + nRamdon2 + " é igual a: " + suma);
             } else {
                 aetiqueta.setText("Incorrecto");
-                aetiqueta2.setText(nRamdon1 + " + " + nRamdon2 + " é igual a?: ");
+                aetiqueta2.setText(nRamdon1 + " + " + nRamdon2 + " é igual a: ");
+            }
+        }
+    }
+
+    private class BotonListenerComprobar implements ActionListener {
+        public void actionPerformed(ActionEvent e) {
+
+            int suma = nRamdon1 + nRamdon2;
+            String sumatext = Integer.toString(suma);
+
+            int caixaTextoInt = Integer.parseInt(caixaTexto.getText());
+            aetiqueta.setText(sumatext);
+
+            if (caixaTextoInt == suma) {
+                aetiqueta.setText("Correcto");
+                aetiqueta2.setText(nRamdon1 + " + " + nRamdon2 + " é igual a: " + suma);
+            } else {
+                aetiqueta.setText("Incorrecto");
+                aetiqueta2.setText(nRamdon1 + " + " + nRamdon2 + " é igual a: ");
             }
         }
     }
