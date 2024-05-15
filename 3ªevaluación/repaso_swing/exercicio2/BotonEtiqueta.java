@@ -12,7 +12,7 @@
  * o que o seu nome indica.
  */
 
-package exercicio1;
+package exercicio2;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -21,15 +21,6 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
-
-/*Fai un programa que faga unha calculadora de 2 valores introducidos cada un na súa caixa de
-texto (JTextField). A calculadora debe ter unha etiqueta na que se amose o resultado, e 4
-botóns “Sumar”, “Restar”, “Multiplicar” e “Dividir”. Cada botón fará o que o seu nome indica
-amosando o resultado na etiqueta Resultado. Engade un menú “Opcións” que teña os
-seguintes submenús: “Sumar”, “Restar”, “Multiplicar”, “Dividir” e ”Limpar entradas”, que fagan
-o que o seu nome indica.
- */
-import javax.swing.*;
 import java.awt.event.*;
 
 public class BotonEtiqueta extends JFrame {
